@@ -1,7 +1,7 @@
 # pymon
 lets monitor the servers via python code :)
 
-Gmail Setup for Sending Email via Python
+# Gmail Setup for Sending Email via Python
 
 To use this project to send email via Gmail, you'll need to make a few changes to your Gmail account settings. Follow these steps:
 
@@ -11,3 +11,6 @@ Click on "Security" from the left menu
 Scroll down to the "Less secure app access" section
 Toggle the switch to "On"
 Note: This setting makes your account more vulnerable, so you may want to create a separate Google account for sending emails via Python.
+
+# provide .env file 
+Simply you can copy .env.example to .env and replace the values with your own values
