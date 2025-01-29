@@ -16,8 +16,7 @@ def check_ram_usage():
     ram_usage = psutil.virtual_memory().percent
     return ram_usage
 
-def send_email():
-    ram_usage = check_ram_usage()
+def send_email(ram_usage, RAM_THRESHOLD):
     if ram_usage > RAM_THRESHOLD:
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.ehlo()
@@ -30,7 +29,9 @@ def send_email():
         server.quit()
         debug = f'Email sent to {receiver} with subject {subject} and body {body}'
         print(debug)
-        
+
+def slack_notification():
+    pass
 
 if __name__ == '__main__':
-    send_email()
+    send_email(check_ram_usage())

@@ -1,0 +1,15 @@
+monitor:
+  cpu:
+    threshold: 80%
+    alert: true
+    warning: 70%
+    notification:
+      email: true
+      slack: false
+  mem:
+    threshold: 50%
+    alert: false
+    warning: 40%
+    notification:
+      email: true
+      slack: false
