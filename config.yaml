@@ -1,3 +1,4 @@
+hostname: "localhost"
 monitor:
   cpu:
     alert: true
@@ -15,3 +16,20 @@ monitor:
     notification:
       email: true
       slack: false
+  disk:
+    INTERVAL: 5
+  net:
+    INTERVAL: 5
+    alert: false
+    upload:
+      warning: 40%
+      threshold: 50%
+      error: 60%
+    download:
+      warning: 40%
+      threshold: 50%
+      error: 60%
+
+# Todo:
+# * how to monitor logs ? how keep track the last line of log ?
+  
