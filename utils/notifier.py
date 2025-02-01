@@ -8,6 +8,7 @@ class EmailNotifier:
         self.sender = sender
         self.password = password
         self.receiver = receiver
+        logging.debug(f"Email notifier initialized with sender: {sender}, receiver: {receiver}, password: {password}")
         
     def send_email(self, subject, body):
         try:

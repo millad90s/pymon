@@ -39,7 +39,7 @@ class CPUUsageMonitor:
         self.last_update = time.time()
         
     ### cpu usage func return a float between 0 and 100
-    def check_cpu_usage(self):
+    def check_cpu_usage(self, interval=1):
         """
         Check the current CPU usage percentage.
 
@@ -47,7 +47,7 @@ class CPUUsageMonitor:
             float: The CPU usage as a percentage between WARNINGF and THRESHOLD.
         """
         current_time = time.time()
-        if current_time - self.last_update >= 2:
+        if current_time - self.last_update >= interval:
             self.cpu_usage = psutil.cpu_percent(interval=1)
             self.last_update = current_time
             logging.info(f"CPU usage is {self.cpu_usage}%")
