@@ -1,30 +1,31 @@
-from utils.cpu import check_cpu_usage
-import utils.mem
+import utils.res
+from utils.configReader import ConfigReader
+from utils.settings import EnvReader
 import yaml
-print(check_cpu_usage())
-print(utils.mem.check_ram_usage())
-
-## TODO:
-## 1- monitor cpu usage and send alert to email if it is higher than threshould
-## 2- monitor memory usage and send alert to email if it is higher than threshould
 
 
-
-
-def read_config(file_path):
-    with open(file_path, 'r') as file:
-        config = yaml.safe_load(file)
-    return config
-
-# # Example usage
-config = read_config('config.yaml')
-monitor_config = config['monitor']
-
-for resource, settings in monitor_config.items():
-    print(f"Monitoring {resource}:")
-    print(f"  Threshold: {settings['threshold']}")
-    print(f"  Alert: {settings['alert']}")
-    print(f"  Warning: {settings['warning']}")
-    print("  Notification:")
-    print(f"    Email: {settings['notification']['email']}")
-    print(f"    Slack: {settings['notification']['slack']}")
+if __name__ == "__main__":
+    # Load configuration and environment variables
+    config_reader = ConfigReader()
+    env_reader = EnvReader()
+    
+    # Get environment variables
+    sender = env_reader.get_var('sender')
+    password = env_reader.get_var('password')
+    receiver = env_reader.get_var('receiver')
+    print(sender)
+    print(receiver)
+    
+    # Get configuration and environment variables
+    cpu_alert = config_reader.get_config('monitor.cpu.alert')
+    cpu_interval = config_reader.get_config('monitor.cpu.INTERVAL')
+    cpu_warning = config_reader.get_config('monitor.cpu.warning')
+    cpu_theshold = config_reader.get_config('monitor.cpu.threshold')
+    cpu_notification = config_reader.get_config('monitor.cpu.notification')
+    
+    print(cpu_alert)
+    print(cpu_interval)
+    print(cpu_warning)    
+    print(cpu_theshold)
+    print(cpu_notification)
+    

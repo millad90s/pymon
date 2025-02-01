@@ -1,15 +1,17 @@
 monitor:
   cpu:
-    threshold: 80%
     alert: true
+    INTERVAL: 1
     warning: 70%
+    threshold: 80%
     notification:
       email: true
       slack: false
   mem:
-    threshold: 50%
+    INTERVAL: 5
     alert: false
     warning: 40%
+    threshold: 50%
     notification:
       email: true
       slack: false
